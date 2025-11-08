@@ -9,8 +9,6 @@ import reviewRoutes from "./routes/reviewRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 
 
-
-
 dotenv.config();
 const app = express();
 

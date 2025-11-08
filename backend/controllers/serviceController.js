@@ -62,6 +62,20 @@ export const deleteService = async (req, res) => {
   }
 };
 
+export const addService = async (req, res) => {
+  console.log("📩 Received Add Service request:", req.body);
+  try {
+    const { name, description, price, merchantId } = req.body;
+    const newService = new Service({ name, description, price, merchantId });
+    await newService.save();
+    res.status(201).json({ message: "Service added successfully" });
+  } catch (error) {
+    console.error("❌ Error adding service:", error);
+    res.status(500).json({ message: "Failed to add service" });
+  }
+};
+
+
 // Get all services (for customers)
 export const getAllServices = async (req, res) => {
   try {
@@ -70,4 +84,6 @@ export const getAllServices = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Error fetching all services", error: error.message });
   }
+
+  
 };
