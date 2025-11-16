@@ -22,6 +22,7 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/products", productRoutes);
 
+
 // Test route
 app.get("/", (req, res) => {
   res.send("API is running...");
