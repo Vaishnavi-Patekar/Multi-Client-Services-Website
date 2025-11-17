@@ -119,4 +119,36 @@ router.delete("/:id", protect, async (req, res) => {
   }
 });
 
+
+// 👉 Fetch services by category (CUSTOMER FEATURE)
+router.get("/category/:category", async (req, res) => {
+  try {
+    const services = await Service.find({
+      category: req.params.category.toLowerCase(),
+    }).populate("merchant", "name email");
+
+    res.json(services);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching category data" });
+  }
+});
+router.get("/", async (req, res) => {
+  try {
+    const services = await Service.find();
+    res.json(services);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch services" });
+  }
+});
+router.get("/category/:category", async (req, res) => {
+  try {
+    const services = await Service.find({
+      category: req.params.category,
+    });
+    res.json(services);
+  } catch (error) {
+    res.status(500).json({ error: "Category fetch error" });
+  }
+});
+
 export default router;

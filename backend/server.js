@@ -7,6 +7,11 @@ import serviceRoutes from "./routes/serviceRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import reviewRoutes from "./routes/reviewRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
+console.log("📌 Starting server.js...");
+
+import cartRoutes from "./routes/cartRoutes.js";
+
+console.log("📦 cartRoutes import =", cartRoutes);
 
 
 dotenv.config();
@@ -21,7 +26,9 @@ app.use("/api/services", serviceRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRoutes);
 
+console.log("🔗 Registering /api/cart route...");
 
 // Test route
 app.get("/", (req, res) => {
