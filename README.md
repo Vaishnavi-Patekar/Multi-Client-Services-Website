@@ -16,6 +16,8 @@ The project aims to provide an efficient way for businesses to handle client dat
 This project is currently a **work in progress**.  
 Core backend setup and initial frontend components are being implemented.  
 More features, modules, and UI enhancements will be added soon.
+Implemented Signup, login and built Merchant dashboard and Customer Dashbaord.
+
 
 ---
 
